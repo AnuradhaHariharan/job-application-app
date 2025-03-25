@@ -21,7 +21,6 @@ This is a React application built with Vite that allows users to browse job list
 - 🚀 **React Router** – For page navigation  
 - 🗄️ **Context API** – State management  
 - 🔗 **Axios** – API requests  
-- 🎨 **CSS / SCSS** – Styling  
 
 ---
 
