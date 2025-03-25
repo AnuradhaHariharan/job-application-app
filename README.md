@@ -1,12 +1,39 @@
-# React + Vite
+# Job Application App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React application built with Vite that allows users to browse job listings, view job details, and apply for jobs effortlessly.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo  
+🔗 [View the App](https://AnuradhaHariharan.github.io/job-application-app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 📌 Features  
+- 🏢 **View Jobs** – Browse a list of available job opportunities.  
+- 🔍 **Search** – Search for specific job listings.  
+- 📄 **Job Details** – View detailed descriptions for each job.  
+- 📜 **Apply for Jobs** – Submit applications via an easy-to-use form.  
+- 📊 **Pagination** – Navigate through jobs efficiently.  
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tech Stack  
+- ⚛️ **React + Vite** – Frontend framework & development tool  
+- 🚀 **React Router** – For page navigation  
+- 🗄️ **Redux Toolkit / Context API** – State management  
+- 🔗 **Axios** – API requests  
+- 🎨 **CSS / SCSS** – Styling  
+
+---
+
+## 🏗️ How to Run Locally  
+
+### 1️⃣ Clone the Repository  
+```sh
+git clone https://github.com/AnuradhaHariharan/job-application-app.git
+cd job-application-app
+npm install
+npm run dev
+The app will be available at http://localhost:5173.
+
+
+
