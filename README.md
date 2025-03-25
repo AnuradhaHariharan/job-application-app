@@ -3,7 +3,7 @@
 This is a React application built with Vite that allows users to browse job listings, view job details, and apply for jobs effortlessly.
 
 ## 🚀 Live Demo  
-🔗 [View the App](https://AnuradhaHariharan.github.io/job-application-app)
+🔗 [View the App](https://job-app-r96l.onrender.com/)
 
 ---
 
