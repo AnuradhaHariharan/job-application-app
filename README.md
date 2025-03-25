@@ -27,13 +27,22 @@ This is a React application built with Vite that allows users to browse job list
 
 ## 🏗️ How to Run Locally  
 
-### 1️⃣ Clone the Repository  
+### Clone the Repository  
 ```sh
 git clone https://github.com/AnuradhaHariharan/job-application-app.git
 cd job-application-app
 npm install
 npm run dev
 The app will be available at http://localhost:5173.
+```
+### Future Improvements
+Database Integration – Store job applications for persistence.
+
+User Authentication – Allow users to create accounts and manage their applications.
+
+Job Filtering & Sorting – Improve search functionality with advanced filters.
+
+
 
 
 
