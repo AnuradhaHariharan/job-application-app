@@ -1,0 +1,59 @@
+.job-details {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 2rem;
+    text-align: center;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.job-details img {
+    width: 30rem; /* Adjust size as needed */
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.job-details h1 {
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.job-details p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.job-details a {
+    display: inline-block;
+    background: green;
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.job-details a:hover {
+    background: darkgreen;
+    transform: scale(1.05);
+}
+
+.job-details a:active {
+    transform: scale(0.95);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

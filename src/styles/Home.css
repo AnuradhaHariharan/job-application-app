@@ -1,0 +1,58 @@
+.job-container {
+    display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        margin-top: 30px;
+        gap: 30px;
+        row-gap: 50px;
+}
+.job-card {
+    width: 100%;
+    margin: auto;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #00000015;
+    transition: .3s;
+    animation: fadein 2s;
+    height: 17rem;
+    cursor: pointer;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+@keyframes fadein {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.job-card:hover {
+    transform: translateY(-10px);
+}
+.job-link {
+    text-decoration: none; 
+    color: inherit; 
+    display: block; 
+}
+.apply-btn {
+    background: green;
+    color: white;
+    padding: 0.5rem 2rem;
+    border-radius: 20px;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.apply-btn:hover {
+    background: darkgreen; /* Darker shade on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+.apply-btn:active {
+    transform: scale(0.95); /* Shrink effect when clicked */
+}
