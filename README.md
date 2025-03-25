@@ -19,7 +19,7 @@ This is a React application built with Vite that allows users to browse job list
 ## 🛠️ Tech Stack  
 - ⚛️ **React + Vite** – Frontend framework & development tool  
 - 🚀 **React Router** – For page navigation  
-- 🗄️ **Redux Toolkit / Context API** – State management  
+- 🗄️ **Context API** – State management  
 - 🔗 **Axios** – API requests  
 - 🎨 **CSS / SCSS** – Styling  
 
