@@ -1,71 +1,99 @@
+import { IonPage, IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonItem, IonLabel, IonButton, IonTextarea, IonToast } from "@ionic/react";
+import { useState, useEffect, useContext } from "react";
+import { useParams, useHistory } from "react-router-dom";
 import axios from "axios";
-import { useState,useEffect, useContext} from "react";
-import { useParams ,useNavigate} from "react-router-dom";
-import "../styles/JobApplication.css"
 import JobContext from "../context/JobContext";
 
-const JobApplication=()=> {
+const JobApplication = () => {
   const { id } = useParams();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const {submitted, setSubmitted,setApplicationInLocalStorage} = useContext(JobContext);
-  const navigate=useNavigate();
+  const history = useHistory();
+  const { submitted, setSubmitted } = useContext(JobContext);
   
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    experience: "",
+    linkedin: "",
+    coverLetter: "",
+    resume: null,
+  });
 
+  const [showToast, setShowToast] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value, type, files } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "file" ? files[0] : value,
+    }));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://jsonplaceholder.typicode.com/posts", {
+      await axios.post("https://jsonplaceholder.typicode.com/posts", {
         jobId: id,
-        name,
-        email,
+        ...formData,
       });
-        setSubmitted(true);
-      
-      
-      
+      setSubmitted(true);
+      setShowToast(true);
     } catch (error) {
-      console.error("Error submitting application:", error);
-      alert("Something went wrong. Please try again later.");
+      console.error("Application failed:", error);
+      alert("Submission error. Please try again.");
     }
   };
-  
-  useEffect(() => {
-    if (submitted) {
-      setTimeout(() => {
-        navigate("/");
-      }, 2000); 
-    }
-  }, [submitted]);
 
+  return (
+    <IonPage>
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle>Job Application</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent className="ion-padding">
+        {submitted ? (
+          <p>Application Submitted!</p>
+        ) : (
+          <form onSubmit={handleSubmit}>
+            <IonItem>
+              <IonLabel position="floating">Full Name</IonLabel>
+              <IonInput name="name" value={formData.name} onIonChange={handleChange} required />
+            </IonItem>
 
-  return submitted ? (
-    <div>
-      <p>Application Submitted! Redirecting...</p>
-    </div>
-   
-  ) : (
-    <div className="job-application-form">
-    <form onSubmit={handleSubmit}>
-      <h2>Apply for Job</h2>
-      <label htmlFor="name">Full Name</label>
-      <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" required  id="name"/>
-      <label htmlFor="email">Email</label>
-      <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required id="email"/>
-      <label htmlFor="experience">Experience (Years)</label>
-      <input type="number" name="experience" placeholder="e.g. 2" required id="experience"/>
-      <label htmlFor="linkedin">LinkedIn Profile</label>
-      <input type="url" name="linkedin"  placeholder="LinkedIn URL" required id="linkedin"/>
-         <label htmlFor="cover-letter">Cover Letter</label>
-      <textarea name="coverLetter"  placeholder="Write a short cover letter..." required  id="cover-letter"/>
-        <label htmlFor="resume">Upload Resume (PDF only)</label>
-      <input type="file" accept=".pdf"  required id="resume"/>
+            <IonItem>
+              <IonLabel position="floating">Email</IonLabel>
+              <IonInput type="email" name="email" value={formData.email} onIonChange={handleChange} required />
+            </IonItem>
 
+            <IonItem>
+              <IonLabel position="floating">Experience (Years)</IonLabel>
+              <IonInput type="number" name="experience" value={formData.experience} onIonChange={handleChange} required />
+            </IonItem>
 
-      <button type="submit" className="apply-btn">Submit</button>
-    </form></div>
+            <IonItem>
+              <IonLabel position="floating">LinkedIn Profile</IonLabel>
+              <IonInput type="url" name="linkedin" value={formData.linkedin} onIonChange={handleChange} required />
+            </IonItem>
+
+            <IonItem>
+              <IonLabel position="floating">Cover Letter</IonLabel>
+              <IonTextarea name="coverLetter" value={formData.coverLetter} onIonChange={handleChange} required />
+            </IonItem>
+
+            <IonItem>
+              <IonLabel>Upload Resume (PDF only)</IonLabel>
+              <input type="file" accept=".pdf" name="resume" onChange={handleChange} required />
+            </IonItem>
+
+            <IonButton expand="block" type="submit">Submit</IonButton>
+          </form>
+        )}
+
+        <IonToast isOpen={showToast} message="Application Submitted!" duration={2000} />
+      </IonContent>
+    </IonPage>
   );
-}
+};
 
 export default JobApplication;
+

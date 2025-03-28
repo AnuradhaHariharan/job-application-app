@@ -1,0 +1,7 @@
+{
+  "name": "job application",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

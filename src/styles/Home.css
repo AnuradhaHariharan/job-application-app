@@ -38,7 +38,6 @@
     display: block; 
 }
 .apply-btn {
-    background: green;
     color: white;
     padding: 0.5rem 2rem;
     border-radius: 20px;
@@ -48,10 +47,7 @@
     transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.apply-btn:hover {
-    background: darkgreen; /* Darker shade on hover */
-    transform: scale(1.05); /* Slight zoom effect */
-}
+
 
 .apply-btn:active {
     transform: scale(0.95); /* Shrink effect when clicked */
